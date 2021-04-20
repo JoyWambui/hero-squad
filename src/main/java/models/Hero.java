@@ -51,4 +51,7 @@ public class Hero {
     public static void clearHeroesList(){
         heroes.clear();
     }
+    public void deleteById(){
+         heroes.remove(mId-1);
+    }
 }

@@ -77,7 +77,25 @@ class HeroTest {
         assertEquals(2, Hero.HeroById(secondHero.getmId()).getmId());
     }
 
-    
+    @Test
+    public void deleteAllHeroes() {
+        Hero hero = createNewHero();
+        Hero secondHero = new Hero("Batman",40,"Wealth","Humanity");
+        Hero.clearHeroesList();
+        assertEquals(0, Hero.getHeroes().size());
+    }
+    @Test
+    public void deleteHeroById() {
+        Hero hero = createNewHero();
+        Hero secondHero = new Hero("Batman",40,"Wealth","Humanity");
+        hero.deleteById();
+        assertEquals(1, Hero.getHeroes().size());
+        assertEquals(Hero.getHeroes().get(0).getmId(), 2);
+
+    }
+
+
+
     public Hero createNewHero(){
         return new Hero("Strong Woman", 300, "Invisibility","Fire");
 
