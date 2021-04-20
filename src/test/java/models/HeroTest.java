@@ -18,7 +18,7 @@ class HeroTest {
     }
 
     @Test
-    public void newHeroObjectInstantiatesCorrectly_true() {
+    public void newHeroObjectInstantiatesCorrectly_notNull() {
         Hero hero = createNewHero();
 
         assertNotNull(hero);
@@ -60,6 +60,24 @@ class HeroTest {
         assertTrue(Hero.getHeroes().contains(secondHero));
     }
 
+    @Test
+    public void HeroInstantiatesWithId_true() {
+        Hero hero = createNewHero();
+        assertEquals(1,hero.getmId());
+    }
+    @Test
+    public void FindHeroByIdReturnsCorrectHero(){
+        Hero hero = createNewHero();
+        assertEquals(1, Hero.HeroById(hero.getmId()).getmId());
+    }
+    @Test
+    public void FindHeroByIdMoreThanOne(){
+        Hero hero = createNewHero();
+        Hero secondHero = new Hero("Batman",40,"Wealth","Humanity");
+        assertEquals(2, Hero.HeroById(secondHero.getmId()).getmId());
+    }
+
+    
     public Hero createNewHero(){
         return new Hero("Strong Woman", 300, "Invisibility","Fire");
 
