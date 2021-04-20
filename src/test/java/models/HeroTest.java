@@ -14,6 +14,7 @@ class HeroTest {
 
     @AfterEach
     void tearDown() {
+        Hero.clearHeroesList();
     }
 
     @Test
@@ -43,6 +44,20 @@ class HeroTest {
     public void HeroInstantiatesWithWeakness_true() {
         Hero hero = createNewHero();
         assertEquals("Fire",hero.getmWeakness());
+    }
+
+    @Test
+    public void AllHeroesAreReturned_true() {
+        Hero hero = createNewHero();
+        Hero secondHero = new Hero("Batman",40,"Wealth","Humanity");
+        assertEquals(2,Hero.getHeroes().size());
+    }
+    @Test
+    public void HeroesListContainsAllHeroes_true() {
+        Hero hero = createNewHero();
+        Hero secondHero = new Hero("Batman",40,"Wealth","Humanity");
+        assertTrue(Hero.getHeroes().contains(hero));
+        assertTrue(Hero.getHeroes().contains(secondHero));
     }
 
     public Hero createNewHero(){
