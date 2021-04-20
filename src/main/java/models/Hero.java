@@ -48,10 +48,21 @@ public class Hero {
         return heroes.get(mId-1);
     }
 
+    public void update(String newName, int newAge, String newPower, String newWeakness){
+        this.mName = newName;
+        this.mAge = newAge;
+        this.mSpecialPower = newPower;
+        this.mWeakness = newWeakness;
+    }
+
     public static void clearHeroesList(){
         heroes.clear();
     }
     public void deleteById(){
          heroes.remove(mId-1);
+    }
+
+    public String getCompleteHero(){
+        return getmName() + " " + getmAge() + " " + getmSpecialPower() + " " + getmWeakness();
     }
 }

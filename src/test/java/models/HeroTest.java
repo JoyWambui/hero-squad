@@ -78,6 +78,17 @@ class HeroTest {
     }
 
     @Test
+    public void updateHeroInformation(){
+        Hero hero = createNewHero();
+        String uneditedHero =hero.getCompleteHero();
+        hero.update("Batman",40,"Wealth","Humanity");
+        int uneditedId = hero.getmId();
+
+        assertEquals(uneditedId, hero.getmId());
+        assertNotEquals(uneditedHero, hero.getCompleteHero());
+    }
+
+    @Test
     public void deleteAllHeroes() {
         Hero hero = createNewHero();
         Hero secondHero = new Hero("Batman",40,"Wealth","Humanity");
