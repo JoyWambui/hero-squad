@@ -45,6 +45,10 @@ public class Squad {
         this.name = newName;
         this.cause = newCause;
     }
+    public void deleteById(){
+        squads.remove(id-1);
+    }
+
     public String fullSquadInfo(){
         return getName() + " " + getCause();
     }

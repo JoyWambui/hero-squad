@@ -67,7 +67,22 @@ class SquadTest {
         assertEquals(uneditedId, squad.getId());
         assertNotEquals(previousSquad, squad.fullSquadInfo());
     }
+    @Test
+    public void deleteAllSquads() {
+        Squad squad = createNewSquad();
+        Squad secondSquad = new Squad("Team PC","Political Correctness");
+        Squad.clearSquadsList();
+        assertEquals(0, Squad.getSquads().size());
+    }
+    @Test
+    public void deleteSquadById() {
+        Squad squad = createNewSquad();
+        Squad secondSquad = new Squad("Team PC","Political Correctness");
+        squad.deleteById();
+        assertEquals(1, Squad.getSquads().size());
+        assertEquals(Squad.getSquads().get(0).getId(), 2);
 
+    }
 
     public Squad createNewSquad(){
         return new Squad("BattleGirls", "Fighting GBV");
