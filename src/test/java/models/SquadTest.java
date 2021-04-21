@@ -51,6 +51,12 @@ class SquadTest {
         Squad squad = createNewSquad();
         assertEquals(1,squad.getId());
     }
+    @Test
+    public void FindSquadById(){
+        Squad squad = createNewSquad();
+        Squad secondSquad = new Squad("Team PC","Political Correctness");
+        assertEquals(2, Squad.findSquadId(secondSquad.getId()).getId());
+    }
 
     public Squad createNewSquad(){
         return new Squad("BattleGirls", "Fighting GBV");

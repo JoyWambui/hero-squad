@@ -38,4 +38,7 @@ public class Squad {
     public int getId() {
         return id;
     }
+    public static Squad findSquadId(int id){
+       return squads.get(id-1);
+    }
 }
