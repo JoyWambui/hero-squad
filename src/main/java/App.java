@@ -1,9 +1,13 @@
+import static spark.Spark.*;
+
+import models.Hero;
+import spark.ModelAndView;
+
+import spark.template.handlebars.HandlebarsTemplateEngine;
+
 import java.util.HashMap;
 import java.util.Map;
 
-import spark.ModelAndView;
-import spark.template.handlebars.HandlebarsTemplateEngine;
-import static spark.Spark.*;
 
 public class App {
     public static void main(String[] args) {
@@ -16,5 +20,20 @@ public class App {
             return new ModelAndView(model, "index.hbs");
         }, new HandlebarsTemplateEngine());
 
+
+        get("/heroes/new", (req, res) -> {
+            Map<String, Object> model = new HashMap<>();
+            return new ModelAndView(model, "hero-form.hbs");
+        }, new HandlebarsTemplateEngine());
+
+        post("/heroes/new", (req, res) ->{
+            Map<String, Object> model = new HashMap<>();
+            String name = req.queryParams("heroName");
+            int age = Integer.parseInt(req.queryParams("heroAge"));
+            String power = req.queryParams("heroPower");
+            String weakness = req.queryParams("heroWeakness");
+            Hero newHero = new Hero(name,age,power,weakness);
+            return new ModelAndView(model, "success.hbs");
+        }, new HandlebarsTemplateEngine());
     }
 }

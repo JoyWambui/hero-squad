@@ -1,0 +1,38 @@
+{{#partial "content"}}
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <form action="/heroes/new" method="post">
+                <div class="form-row">
+                    <div class="col-md-12 mb-3">
+                        <label for="heroName">Hero's Name</label>
+                        <input type="text" class="form-control" id="heroName" name="heroName" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="col-md-12 mb-3">
+                        <label for="heroAge">Hero's Age</label>
+                        <input type="number" class="form-control" id="heroAge" name="heroAge" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="col-md-12 mb-3">
+                        <label for="heroPower">Hero's Special Power</label>
+                        <input type="text" class="form-control" id="heroPower" name="heroPower" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="col-md-12 mb-3">
+                        <label for="heroWeakness">Hero's Weakness</label>
+                        <input type="text" class="form-control" id="heroWeakness" name="heroWeakness" required>
+                    </div>
+                </div>
+                <button class="btn btn-success" type="submit">SUBMIT</button>
+            </form>
+        </div>
+
+    </div>
+
+
+{{/partial}}
+
+{{> layout.hbs}}
