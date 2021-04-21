@@ -14,6 +14,7 @@ class SquadTest {
 
     @AfterEach
     void tearDown() {
+        Squad.clearSquadsList();
     }
 
     @Test
@@ -32,7 +33,24 @@ class SquadTest {
         Squad squad = createNewSquad();
         assertEquals("Fighting GBV",squad.getCause());
     }
-
+    @Test
+    public void AllSquadsAreReturned_true() {
+        Squad squad = createNewSquad();
+        Squad secondSquad = new Squad("Team PC","Political Correctness");
+        assertEquals(2,Squad.getSquads().size());
+    }
+    @Test
+    public void SquadsListContainsAllSquads_true() {
+        Squad squad = createNewSquad();
+        Squad secondSquad = new Squad("Team PC","Political Correctness");
+        assertTrue(Squad.getSquads().contains(squad));
+        assertTrue(Squad.getSquads().contains(secondSquad));
+    }
+    @Test
+    public void SquadInstantiatesWithId_true() {
+        Squad squad = createNewSquad();
+        assertEquals(1,squad.getId());
+    }
 
     public Squad createNewSquad(){
         return new Squad("BattleGirls", "Fighting GBV");

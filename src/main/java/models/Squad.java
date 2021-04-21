@@ -15,6 +15,7 @@ public class Squad {
         this.name = name;
         this.cause = cause;
         squads.add(this);
+        this.id = squads.size();
 
     }
 
@@ -29,6 +30,10 @@ public class Squad {
     public static ArrayList<Squad> getSquads() {
         return squads;
     }
+    public static void clearSquadsList(){
+        squads.clear();
+    }
+
 
     public int getId() {
         return id;
