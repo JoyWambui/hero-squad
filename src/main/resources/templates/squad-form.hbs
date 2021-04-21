@@ -1,0 +1,49 @@
+{{#partial "content"}}
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            {{#if editSquad}}
+                <h1>Edit This Hero!</h1>
+                <form action="/squad/{{editSquad.id}}/update" method="POST">
+                    <div class="form-row">
+                        <div class="col-md-12 mb-3">
+                            <label for="squadName">Edit Squad's Name</label>
+                            <input type="text" class="form-control" id="squadName" name="squadName" value="{{editSquad.name}}" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="col-md-12 mb-3">
+                            <label for="squadCause">Edit Squad's Mission</label>
+                            <input type="text" class="form-control" id="squadCause" name="squadCause" value="{{editSquad.cause}}" required>
+                        </div>
+                    </div>
+                    <button class="btn btn-success btn-lg" type="submit">EDIT SQUAD</button>
+                </form>
+
+            {{else}}
+                <form action="/squads/new" method="POST">
+                    <div class="form-row">
+                        <div class="col-md-12 mb-3">
+                            <label for="squadName">Squad's Name</label>
+                            <input type="text" class="form-control" id="squadName" name="squadName"  required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="col-md-12 mb-3">
+                            <label for="squadCause">Squad's Mission</label>
+                            <input type="text" class="form-control" id="squadCause" name="squadCause"  required>
+                        </div>
+                    </div>
+
+                    <button class="btn btn-success btn-lg" type="submit">CREATE SQUAD</button>
+                </form>
+
+            {{/if}}
+
+        </div>
+
+    </div>
+
+
+{{/partial}}
+
+{{> layout.hbs}}

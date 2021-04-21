@@ -1,6 +1,7 @@
 import static spark.Spark.*;
 
 import models.Hero;
+import models.Squad;
 import spark.ModelAndView;
 
 import spark.template.handlebars.HandlebarsTemplateEngine;
@@ -21,7 +22,10 @@ public class App {
             return new ModelAndView(model, "index.hbs");
         }, new HandlebarsTemplateEngine());
 
-
+        get("/squads/new", (req, res) -> {
+            Map<String, Object> model = new HashMap<>();
+            return new ModelAndView(model, "squad-form.hbs");
+        }, new HandlebarsTemplateEngine());
         get("/heroes/new", (req, res) -> {
             Map<String, Object> model = new HashMap<>();
             return new ModelAndView(model, "hero-form.hbs");
@@ -80,6 +84,7 @@ public class App {
             deleteHero.deleteById();
             return new ModelAndView(model, "success.hbs");
         },new HandlebarsTemplateEngine());
+
 
     }
 }
