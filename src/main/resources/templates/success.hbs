@@ -1,16 +1,35 @@
 {{#partial "content"}}
 
-    <h1>HERO BUILD SUCCESS!</h1><br>
-    <br><h2>Awesome! Your hero has been successfully created.</h2><br>
-    <div class="row ">
-        <div class="col-md-6">
-            <br><a href="/"><button type="button" class="btn btn-danger btn-lg text-center">Take Me Home</button></a>
+    {{#if deleteHero}}
+        <h1>HERO DELETE SUCCESS!</h1><br>
 
+        <br><h2>Your hero has been successfully deleted!</h2><br>
+        <div class="row ">
+            <div class="col-md-6">
+                <br><a href="/"><button type="button" class="btn btn-danger btn-lg text-center">Take Me Home</button></a>
+
+            </div>
+            <div class="col-md-6">
+                <br><a href="/heroes"><button type="button" class="btn btn-danger btn-lg text-center">Show Me the Remaining Heroes</button></a>
+            </div>
         </div>
-        <div class="col-md-6">
-            <br><a href="/heroes"><button type="button" class="btn btn-danger btn-lg text-center">Show Me the Heroes</button></a>
+
+
+    {{else}}
+        <h1>HERO BUILD SUCCESS!</h1><br>
+
+        <br><h2>Awesome! Your hero has been successfully created.</h2><br>
+        <div class="row ">
+            <div class="col-md-6">
+                <br><a href="/"><button type="button" class="btn btn-danger btn-lg text-center">Take Me Home</button></a>
+
+            </div>
+            <div class="col-md-6">
+                <br><a href="/heroes"><button type="button" class="btn btn-danger btn-lg text-center">Show Me the Heroes</button></a>
+            </div>
         </div>
-    </div>
+
+    {{/if}}
 
 {{/partial}}
 

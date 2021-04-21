@@ -73,6 +73,13 @@ public class App {
             return new ModelAndView(model, "success.hbs");
         }, new HandlebarsTemplateEngine());
 
+        get("/heroes/:id/delete", (req,res)->{
+            Map<String,Object> model = new HashMap<>();
+            int deleteHeroId = Integer.parseInt(req.params("id"));
+            Hero deleteHero = Hero.HeroById(deleteHeroId);
+            deleteHero.deleteById();
+            return new ModelAndView(model, "success.hbs");
+        },new HandlebarsTemplateEngine());
 
     }
 }
