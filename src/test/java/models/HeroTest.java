@@ -27,23 +27,23 @@ class HeroTest {
     @Test
     public void HeroInstantiatesWithName_true() {
         Hero hero = createNewHero();
-        assertEquals("Strong Woman",hero.getmName());
+        assertEquals("Strong Woman",hero.getName());
     }
     @Test
     public void HeroInstantiatesWithAge_true() {
         Hero hero = createNewHero();
-        assertEquals(300,hero.getmAge());
+        assertEquals(300,hero.getAge());
     }
     @Test
     public void HeroInstantiatesWithSpecialPower_true() {
         Hero hero = createNewHero();
-        assertEquals("Invisibility",hero.getmSpecialPower());
+        assertEquals("Invisibility",hero.getSpecialPower());
     }
 
     @Test
     public void HeroInstantiatesWithWeakness_true() {
         Hero hero = createNewHero();
-        assertEquals("Fire",hero.getmWeakness());
+        assertEquals("Fire",hero.getWeakness());
     }
 
     @Test
@@ -63,18 +63,18 @@ class HeroTest {
     @Test
     public void HeroInstantiatesWithId_true() {
         Hero hero = createNewHero();
-        assertEquals(1,hero.getmId());
+        assertEquals(1,hero.getId());
     }
     @Test
     public void FindHeroByIdReturnsCorrectHero(){
         Hero hero = createNewHero();
-        assertEquals(1, Hero.HeroById(hero.getmId()).getmId());
+        assertEquals(1, Hero.HeroById(hero.getId()).getId());
     }
     @Test
     public void FindHeroByIdMoreThanOne(){
         Hero hero = createNewHero();
         Hero secondHero = new Hero("Batman",40,"Wealth","Humanity");
-        assertEquals(2, Hero.HeroById(secondHero.getmId()).getmId());
+        assertEquals(2, Hero.HeroById(secondHero.getId()).getId());
     }
 
     @Test
@@ -82,9 +82,9 @@ class HeroTest {
         Hero hero = createNewHero();
         String uneditedHero =hero.getCompleteHero();
         hero.update("Batman",40,"Wealth","Humanity");
-        int uneditedId = hero.getmId();
+        int uneditedId = hero.getId();
 
-        assertEquals(uneditedId, hero.getmId());
+        assertEquals(uneditedId, hero.getId());
         assertNotEquals(uneditedHero, hero.getCompleteHero());
     }
 
@@ -101,7 +101,7 @@ class HeroTest {
         Hero secondHero = new Hero("Batman",40,"Wealth","Humanity");
         hero.deleteById();
         assertEquals(1, Hero.getHeroes().size());
-        assertEquals(Hero.getHeroes().get(0).getmId(), 2);
+        assertEquals(Hero.getHeroes().get(0).getId(), 2);
 
     }
 

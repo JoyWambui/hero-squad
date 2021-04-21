@@ -5,6 +5,7 @@ import spark.ModelAndView;
 
 import spark.template.handlebars.HandlebarsTemplateEngine;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -30,10 +31,26 @@ public class App {
             Map<String, Object> model = new HashMap<>();
             String name = req.queryParams("heroName");
             int age = Integer.parseInt(req.queryParams("heroAge"));
-            String power = req.queryParams("heroPower");
+            String specialPower = req.queryParams("heroPower");
             String weakness = req.queryParams("heroWeakness");
-            Hero newHero = new Hero(name,age,power,weakness);
+            Hero newHero = new Hero(name,age,specialPower,weakness);
             return new ModelAndView(model, "success.hbs");
         }, new HandlebarsTemplateEngine());
+
+        get("/heroes", (req, res) -> {
+            Map<String, Object> model = new HashMap<>();
+            ArrayList<Hero> heroes = Hero.getHeroes();
+            model.put("heroes",heroes);
+            return new ModelAndView(model, "all-heroes.hbs");
+        }, new HandlebarsTemplateEngine());
+
+        get("/heroes/:id", (req, res) -> {
+            Map<String, Object> model = new HashMap<>();
+            int heroId = Integer.parseInt(req.params("id"));
+            Hero fetchedHero = Hero.HeroById(heroId);
+            model.put("hero", fetchedHero);
+            return new ModelAndView(model, "hero-details.hbs");
+        }, new HandlebarsTemplateEngine());
+
     }
 }
