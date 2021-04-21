@@ -52,5 +52,27 @@ public class App {
             return new ModelAndView(model, "hero-details.hbs");
         }, new HandlebarsTemplateEngine());
 
+        get("/heroes/:id/update", (req, res) -> {
+            Map<String, Object> model = new HashMap<>();
+            int editHeroId = Integer.parseInt(req.params("id"));
+            Hero editHero = Hero.HeroById(editHeroId);
+            model.put("editHero", editHero);
+            return new ModelAndView(model, "hero-form.hbs");
+        }, new HandlebarsTemplateEngine());
+
+        post("/heroes/:id/update", (req, res) -> {
+            Map<String, Object> model = new HashMap<>();
+            String newName = req.queryParams("heroName");
+            int newAge = Integer.parseInt(req.queryParams("heroAge"));
+            String newSpecialPower = req.queryParams("heroPower");
+            String newWeakness = req.queryParams("heroWeakness");
+
+            int editHeroId = Integer.parseInt(req.params("id"));
+            Hero editHero = Hero.HeroById(editHeroId);
+            editHero.update(newName,newAge,newSpecialPower,newWeakness);
+            return new ModelAndView(model, "success.hbs");
+        }, new HandlebarsTemplateEngine());
+
+
     }
 }
