@@ -41,4 +41,11 @@ public class Squad {
     public static Squad findSquadId(int id){
        return squads.get(id-1);
     }
+    public void update(String newName,String newCause){
+        this.name = newName;
+        this.cause = newCause;
+    }
+    public String fullSquadInfo(){
+        return getName() + " " + getCause();
+    }
 }

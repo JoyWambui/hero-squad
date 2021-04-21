@@ -57,6 +57,17 @@ class SquadTest {
         Squad secondSquad = new Squad("Team PC","Political Correctness");
         assertEquals(2, Squad.findSquadId(secondSquad.getId()).getId());
     }
+    @Test
+    public void updateSquadInfo(){
+        Squad squad = createNewSquad();
+        String previousSquad = squad.fullSquadInfo();
+        squad.update("Team PC","Political Correctness");
+        int uneditedId = squad.getId();
+
+        assertEquals(uneditedId, squad.getId());
+        assertNotEquals(previousSquad, squad.fullSquadInfo());
+    }
+
 
     public Squad createNewSquad(){
         return new Squad("BattleGirls", "Fighting GBV");
