@@ -1,0 +1,23 @@
+{{#partial "content"}}
+
+    {{#if squads}}
+        <h1>Here are Your Squads: </h1>
+        <ol>
+            {{#each squads}}
+                <li>
+                    <h3>Name: {{ name }}</h3>
+                    <h3>My Mission : {{ cause }}</h3>
+                    <h4><a href="/squads/{{id}}">View my heroes!</a></h4>
+
+                </li>
+            {{/each}}
+
+        </ol>
+
+    {{else}}
+        <h1 class="text-center">There are no Squads yet :(</h1>
+    {{/if}}
+
+{{/partial}}
+
+{{> layout.hbs}}

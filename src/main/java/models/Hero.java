@@ -58,8 +58,14 @@ public class Hero {
     public static void clearHeroesList(){
         heroes.clear();
     }
+
     public void deleteById(){
          heroes.remove(id-1);
+    }
+
+    public void addToSquad(){
+        ArrayList<Hero> squadHeroes = new ArrayList<>();
+        squadHeroes.add(this);
     }
 
     public String getCompleteHero(){

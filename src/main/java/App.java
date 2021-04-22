@@ -26,6 +26,21 @@ public class App {
             Map<String, Object> model = new HashMap<>();
             return new ModelAndView(model, "squad-form.hbs");
         }, new HandlebarsTemplateEngine());
+        post("/squads/new", (req, res) ->{
+            Map<String, Object> model = new HashMap<>();
+            String name = req.queryParams("squadName");
+            String cause = req.queryParams("squadCause");
+            Squad newSquad = new Squad(name, cause);
+            return new ModelAndView(model, "squad-success.hbs");
+        }, new HandlebarsTemplateEngine());
+
+        get("/squads", (req, res) -> {
+            Map<String, Object> model = new HashMap<>();
+            ArrayList<Squad> squads = Squad.getSquads();
+            model.put("squads",squads);
+            return new ModelAndView(model, "all-squads.hbs");
+        }, new HandlebarsTemplateEngine());
+
         get("/heroes/new", (req, res) -> {
             Map<String, Object> model = new HashMap<>();
             return new ModelAndView(model, "hero-form.hbs");
@@ -54,6 +69,14 @@ public class App {
             Hero fetchedHero = Hero.HeroById(heroId);
             model.put("hero", fetchedHero);
             return new ModelAndView(model, "hero-details.hbs");
+        }, new HandlebarsTemplateEngine());
+
+        get("/heroes/:id/add", (req, res) -> {
+            Map<String, Object> model = new HashMap<>();
+            int heroId = Integer.parseInt(req.params("id"));
+            Hero heroToAdd = Hero.HeroById(heroId);
+            model.put("heroToAdd", heroToAdd);
+            return new ModelAndView(model, "add-hero.hbs");
         }, new HandlebarsTemplateEngine());
 
         get("/heroes/:id/update", (req, res) -> {
