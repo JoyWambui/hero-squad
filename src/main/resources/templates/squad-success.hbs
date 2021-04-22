@@ -1,17 +1,29 @@
 {{#partial "content"}}
+    {{#if squadToDelete}}
+        <h1>Squad Deleted!</h1><br>
+        <div class="row justify-content-center">
+            <div class="col-md-4 mb-3">
+                <br><a href="/"><button type="button" class="btn btn-success btn-lg text-center">Create A New Squad</button></a>
+            </div>
+            <div class="col-md-4 mb-3">
+                <br><a href="/squads"><button type="button" class="btn btn-primary btn-lg text-center">View Squads</button></a>
+            </div>
+        </div>
 
-    <h1>You've created a new Squad!</h1><br>
-    <div class="row justify-content-center">
-        <div class="col-md-4 mb-3">
-            <br><a href="/"><button type="button" class="btn btn-success btn-lg text-center">Create A New Squad</button></a>
+    {{else}}
+        <h1>You've created a new Squad!</h1><br>
+        <div class="row justify-content-center">
+            <div class="col-md-4 mb-3">
+                <br><a href="/"><button type="button" class="btn btn-success btn-lg text-center">Create A New Squad</button></a>
+            </div>
+            <div class="col-md-4 mb-3">
+                <br><a href="/heroes/new"><button type="button" class="btn btn-info btn-lg text-center">Create a Hero</button></a>
+            </div>
+            <div class="col-md-4 mb-3">
+                <br><a href="/squads"><button type="button" class="btn btn-primary btn-lg text-center">View Squads</button></a>
+            </div>
         </div>
-        <div class="col-md-4 mb-3">
-            <br><a href="/heroes/new"><button type="button" class="btn btn-info btn-lg text-center">Create a Hero</button></a>
-        </div>
-        <div class="col-md-4 mb-3">
-            <br><a href="/squads"><button type="button" class="btn btn-primary btn-lg text-center">View Squad</button></a>
-        </div>
-    </div>
+    {{/if}}
 
 
 

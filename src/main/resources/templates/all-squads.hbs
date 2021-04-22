@@ -9,11 +9,13 @@
                     <h3>My Mission : {{ cause }}</h3>
                     <h4><a href="/squads/{{id}}">View my heroes!</a></h4>
                     <a href="/squads/{{id}}/update"><button type="button" class="btn btn-warning btn-lg">Edit Squad</button></a>
+                    <a href="/squads/{{id}}/delete"><button type="button" class="btn btn-danger btn-lg">Delete Squad</button></a>
 
                 </li>
             {{/each}}
 
         </ol>
+
 
     {{else}}
         <h1 class="text-center">There are no Squads yet :(</h1>
