@@ -50,6 +50,25 @@ public class App {
             return new ModelAndView(model,"all-heroes.hbs");
         }, new HandlebarsTemplateEngine());
 
+        get("/squads/:id/update", (req, res) -> {
+            Map<String, Object> model = new HashMap<>();
+            int editSquadId = Integer.parseInt(req.params("id"));
+            Squad editSquad = Squad.findSquadId(editSquadId);
+            model.put("editSquad",editSquad );
+            return new ModelAndView(model, "squad-form.hbs");
+        }, new HandlebarsTemplateEngine());
+
+        post("/squads/:id/update", (req, res) -> {
+            Map<String, Object> model = new HashMap<>();
+            String newName = req.queryParams("squadName");
+            String newCause = req.queryParams("squadCause");
+
+            int editSquadId = Integer.parseInt(req.params("id"));
+            Squad editSquad = Squad.findSquadId(editSquadId);
+            editSquad.update(newName,newCause);
+            return new ModelAndView(model, "squad-success.hbs");
+        }, new HandlebarsTemplateEngine());
+
         get("/heroes/new", (req, res) -> {
             Map<String, Object> model = new HashMap<>();
             return new ModelAndView(model, "hero-form.hbs");
