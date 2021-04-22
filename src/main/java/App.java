@@ -46,8 +46,8 @@ public class App {
             Map<String, Object> model = new HashMap<>();
             int squadId = Integer.parseInt(req.params("id"));
             Squad viewSquad = Squad.findSquadId(squadId);
-            model.put("viewSquad", viewSquad);
-            return new ModelAndView(model, "squad-details.hbs");
+            res.redirect("/heroes");
+            return new ModelAndView(model,"all-heroes.hbs");
         }, new HandlebarsTemplateEngine());
 
         get("/heroes/new", (req, res) -> {
@@ -80,13 +80,7 @@ public class App {
             return new ModelAndView(model, "hero-details.hbs");
         }, new HandlebarsTemplateEngine());
 
-        get("/heroes/:id/add", (req, res) -> {
-            Map<String, Object> model = new HashMap<>();
-            int heroId = Integer.parseInt(req.params("id"));
-            Hero heroToAdd = Hero.HeroById(heroId);
-            model.put("heroToAdd", heroToAdd);
-            return new ModelAndView(model, "add-hero.hbs");
-        }, new HandlebarsTemplateEngine());
+
 
         get("/heroes/:id/update", (req, res) -> {
             Map<String, Object> model = new HashMap<>();
