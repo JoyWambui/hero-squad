@@ -26,6 +26,7 @@ public class App {
             Map<String, Object> model = new HashMap<>();
             return new ModelAndView(model, "squad-form.hbs");
         }, new HandlebarsTemplateEngine());
+
         post("/squads/new", (req, res) ->{
             Map<String, Object> model = new HashMap<>();
             String name = req.queryParams("squadName");
@@ -39,6 +40,14 @@ public class App {
             ArrayList<Squad> squads = Squad.getSquads();
             model.put("squads",squads);
             return new ModelAndView(model, "all-squads.hbs");
+        }, new HandlebarsTemplateEngine());
+
+        get("/squads/:id", (req, res) -> {
+            Map<String, Object> model = new HashMap<>();
+            int squadId = Integer.parseInt(req.params("id"));
+            Squad viewSquad = Squad.findSquadId(squadId);
+            model.put("viewSquad", viewSquad);
+            return new ModelAndView(model, "squad-details.hbs");
         }, new HandlebarsTemplateEngine());
 
         get("/heroes/new", (req, res) -> {

@@ -8,6 +8,7 @@
                     <h3>Name: {{ name }}</h3>
                     <h3>My Mission : {{ cause }}</h3>
                     <h4><a href="/squads/{{id}}">View my heroes!</a></h4>
+                    <a href="/heroes"><button type="button" class="btn btn-info btn-lg">Add Hero</button></a>
 
                 </li>
             {{/each}}
@@ -16,6 +17,7 @@
 
     {{else}}
         <h1 class="text-center">There are no Squads yet :(</h1>
+
     {{/if}}
 
 {{/partial}}
