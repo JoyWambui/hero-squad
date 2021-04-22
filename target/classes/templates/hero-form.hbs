@@ -1,0 +1,72 @@
+{{#partial "content"}}
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            {{#if editHero}}
+                <h1>Edit This Hero!</h1>
+                <form action="/heroes/{{editHero.id}}/update" method="POST">
+                    <div class="form-row">
+                        <div class="col-md-12 mb-3">
+                            <label for="heroName">Edit Hero's Name</label>
+                            <input type="text" class="form-control" id="heroName" name="heroName" value="{{editHero.name}}" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="col-md-12 mb-3">
+                            <label for="heroAge">Edit Hero's Age</label>
+                            <input type="number" class="form-control" id="heroAge" name="heroAge" value="{{editHero.age}}" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="col-md-12 mb-3">
+                            <label for="heroPower">Edit Hero's Special Power</label>
+                            <input type="text" class="form-control" id="heroPower" name="heroPower" value="{{editHero.specialPower}}" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="col-md-12 mb-3">
+                            <label for="heroWeakness">Edit Hero's Weakness</label>
+                            <input type="text" class="form-control" id="heroWeakness" name="heroWeakness" value="{{editHero.weakness}}" required>
+                        </div>
+                    </div>
+                    <button class="btn btn-success btn-lg" type="submit">EDIT HERO</button>
+                </form>
+
+            {{else}}
+                <form action="/heroes/new" method="POST">
+                    <div class="form-row">
+                        <div class="col-md-12 mb-3">
+                            <label for="heroName">Hero's Name</label>
+                            <input type="text" class="form-control" id="heroName" name="heroName" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="col-md-12 mb-3">
+                            <label for="heroAge">Hero's Age</label>
+                            <input type="number" class="form-control" id="heroAge" name="heroAge" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="col-md-12 mb-3">
+                            <label for="heroPower">Hero's Special Power</label>
+                            <input type="text" class="form-control" id="heroPower" name="heroPower" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="col-md-12 mb-3">
+                            <label for="heroWeakness">Hero's Weakness</label>
+                            <input type="text" class="form-control" id="heroWeakness" name="heroWeakness" required>
+                        </div>
+                    </div>
+                    <button class="btn btn-success btn-lg" type="submit">CREATE HERO</button>
+                </form>
+
+            {{/if}}
+
+        </div>
+
+    </div>
+
+
+{{/partial}}
+
+{{> layout.hbs}}
