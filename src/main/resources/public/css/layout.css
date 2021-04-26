@@ -1,0 +1,14 @@
+.header {
+    padding: 10px;
+    text-align: center;
+    background-image: url("../images/superhero.jpeg");
+    color: white;
+    font-size: 10px;
+    height: 300px;
+}
+.navbar{
+    font-size: 3rem;
+}
+.navbar-brand{
+    font-size: 3rem;
+}

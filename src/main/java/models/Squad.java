@@ -7,8 +7,8 @@ import java.util.Objects;
 public class Squad {
     private String name;
     private String cause;
-    private int maxSize;
-    private Boolean maxLimit;
+    private  int maxSize;
+    private final Boolean maxLimit;
     private static ArrayList<Squad>  squads= new ArrayList<>();
     private static HashSet<Hero> squadHeroes = new HashSet<>();
     private int id;
@@ -75,18 +75,15 @@ public class Squad {
     }
 
     @Override
-    public boolean equals(Object obj) {
-        if (this == obj) return true;
-        if (obj== null||obj.getClass()!= this.getClass()) return true;
-        Squad squad = (Squad) obj;
-        return this.getName().equals(squad.getName())&&
-                this.getId()==squad.getId()&&
-                this.getCause().equals(squad.getCause())&&
-                this.getMaxSize()==squad.getMaxSize();
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Squad)) return false;
+        Squad squad = (Squad) o;
+        return getMaxSize() == squad.getMaxSize() && getId() == squad.getId() && getName().equals(squad.getName()) && getCause().equals(squad.getCause()) && getMaxLimit().equals(squad.getMaxLimit());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, cause, id, maxSize);
+        return Objects.hash(getName(), getCause(), getMaxSize(), getMaxLimit(), getId());
     }
 }

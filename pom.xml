@@ -80,9 +80,9 @@
         <version>3.0.3</version>
         <configuration>
           <jdkVersion>11.0.10</jdkVersion>
-          <appName>build-squad-hero</appName>
+          <appName>build-hero-squads</appName>
           <processTypes>
-            <web>java -jar target/my-app-1.0-jar-with-dependencies.jar</web>
+            <web>java -jar target/hero-squad-1.0-jar-with-dependencies.jar</web>
           </processTypes>
         </configuration>
       </plugin>

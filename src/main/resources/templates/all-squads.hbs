@@ -2,10 +2,11 @@
 
     {{#if squads}}
         <h1>Here are Your Squads: </h1>
-        <ul>
-            {{#each squads}}
-                <li>
+        <div class="row justify-content-center">
+            <div class="col-12">
+                {{#each squads}}
                     <div class="card border-dark mb-3 text-dark" style="width: 50rem;">
+                        <img style="height: 300px" src="/images/marvel.jpeg" class="card-img-top" alt="squad Image">
                         <ul class="list-group list-group-flush">
                             <li class="list-group-item"><h3>Name: {{ name }}</h3></li>
                             <li class="list-group-item"><h3>My Mission : {{ cause }}</h3></li>
@@ -14,22 +15,20 @@
                         <div class="card-body">
                             <div class="row justify-content-center">
                                 <div class="col-md-4 ">
-                                    <a href="/squads/{{id}}/update" class="btn btn-warning btn-lg">Edit Squad</a>
+                                    <a href="/squads/{{id}}/update" class="btn btn-warning btn-lg ">Edit Squad</a>
+                                </div>
+                                <div class="col-md-4">
+                                    <a href="/squads/{{id}}/heroes/new"><button type="button" class="btn btn-info btn-lg   text-center">Create a Hero</button></a>
                                 </div>
                                 <div class="col-md-4 ">
-                                    <br><a href="/squads/{{id}}/heroes/new"><button type="button" class="btn btn-info btn-lg text-center">Create a Hero</button></a>
-                                </div>
-                                <div class="col-md-4 ">
-                                    <a href="/squads/{{id}}/delete" class="btn btn-danger btn-lg">Delete Squad</a>
+                                    <a href="/squads/{{id}}/delete" class="btn btn-danger btn-lg ">Delete Squad</a>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </li>
-            {{/each}}
-
-        </ul>
-
+                {{/each}}
+            </div>
+        </div>
 
     {{else}}
         <h1 class="text-center">There are no Squads yet :(</h1>
