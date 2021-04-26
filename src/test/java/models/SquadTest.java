@@ -40,6 +40,16 @@ class SquadTest {
         assertEquals(2,Squad.getSquads().size());
     }
     @Test
+    public void SquadHeroesAreAdded_true() {
+        Squad squad = createNewSquad();
+        Hero hero =   new Hero("Strong Woman", 300, "Invisibility","Fire");
+        Hero secondHero = new Hero("Batman",40,"Wealth","Humanity");
+        squad.addToSquad(hero);
+        squad.addToSquad(secondHero);
+        assertEquals(2,Squad.getSquadHeroes().size());
+    }
+
+    @Test
     public void SquadsListContainsAllSquads_true() {
         Squad squad = createNewSquad();
         Squad secondSquad = new Squad("Team PC","Political Correctness");
