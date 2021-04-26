@@ -7,16 +7,19 @@ import java.util.Objects;
 public class Squad {
     private String name;
     private String cause;
+    private int maxSize;
+    private Boolean maxLimit;
     private static ArrayList<Squad>  squads= new ArrayList<>();
     private static HashSet<Hero> squadHeroes = new HashSet<>();
     private int id;
 
-    public Squad(String name, String cause){
+    public Squad(String name, String cause, int maxSize){
         this.name = name;
         this.cause = cause;
+        this.maxSize = maxSize;
+        this.maxLimit = exceedsMaxSize();
         squads.add(this);
         this.id = squads.size();
-
 
     }
     public static Squad findSquadId(int id){
@@ -44,6 +47,14 @@ public class Squad {
         return id;
     }
 
+    public int getMaxSize() {
+        return maxSize;
+    }
+
+    public Boolean getMaxLimit() {
+        return maxLimit;
+    }
+
     public static HashSet<Hero> getSquadHeroes() {
         return squadHeroes;
     }
@@ -59,6 +70,9 @@ public class Squad {
     public String fullSquadInfo(){
         return getName() + " " + getCause();
     }
+    public Boolean exceedsMaxSize(){
+        return getSquadHeroes().size() > maxSize;
+    }
 
     @Override
     public boolean equals(Object obj) {
@@ -67,11 +81,12 @@ public class Squad {
         Squad squad = (Squad) obj;
         return this.getName().equals(squad.getName())&&
                 this.getId()==squad.getId()&&
-                this.getCause().equals(squad.getCause());
+                this.getCause().equals(squad.getCause())&&
+                this.getMaxSize()==squad.getMaxSize();
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, cause, id);
+        return Objects.hash(name, cause, id, maxSize);
     }
 }

@@ -36,7 +36,7 @@ class SquadTest {
     @Test
     public void AllSquadsAreReturned_true() {
         Squad squad = createNewSquad();
-        Squad secondSquad = new Squad("Team PC","Political Correctness");
+        Squad secondSquad = new Squad("Team PC","Political Correctness",8);
         assertEquals(2,Squad.getSquads().size());
     }
     @Test
@@ -52,7 +52,7 @@ class SquadTest {
     @Test
     public void SquadsListContainsAllSquads_true() {
         Squad squad = createNewSquad();
-        Squad secondSquad = new Squad("Team PC","Political Correctness");
+        Squad secondSquad = new Squad("Team PC","Political Correctness",8);
         assertTrue(Squad.getSquads().contains(squad));
         assertTrue(Squad.getSquads().contains(secondSquad));
     }
@@ -64,7 +64,7 @@ class SquadTest {
     @Test
     public void FindSquadById(){
         Squad squad = createNewSquad();
-        Squad secondSquad = new Squad("Team PC","Political Correctness");
+        Squad secondSquad = new Squad("Team PC","Political Correctness",8);
         assertEquals(2, Squad.findSquadId(secondSquad.getId()).getId());
     }
     @Test
@@ -80,14 +80,14 @@ class SquadTest {
     @Test
     public void deleteAllSquads() {
         Squad squad = createNewSquad();
-        Squad secondSquad = new Squad("Team PC","Political Correctness");
+        Squad secondSquad = new Squad("Team PC","Political Correctness",8);
         Squad.clearSquadsList();
         assertEquals(0, Squad.getSquads().size());
     }
     @Test
     public void deleteSquadById() {
         Squad squad = createNewSquad();
-        Squad secondSquad = new Squad("Team PC","Political Correctness");
+        Squad secondSquad = new Squad("Team PC","Political Correctness",8);
         squad.deleteById();
         assertEquals(1, Squad.getSquads().size());
         assertEquals(Squad.getSquads().get(0).getId(), 2);
@@ -95,6 +95,6 @@ class SquadTest {
     }
 
     public Squad createNewSquad(){
-        return new Squad("BattleGirls", "Fighting GBV");
+        return new Squad("BattleGirls", "Fighting GBV",3);
     }
 }
