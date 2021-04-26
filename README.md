@@ -15,6 +15,6 @@
    5. run the command $gradle run
    6. Open the local server http://localhost:4567
 ## Link to Live Site
- [ BUILD-HERO-SQUAD](https://build-hero-squad.herokuapp.com/)
+ [ BUILD-HERO-SQUAD](https://build-hero-squads.herokuapp.com/)
 
  Copyright (c) 2021 **JoyWambui**
